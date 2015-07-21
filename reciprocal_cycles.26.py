@@ -26,13 +26,22 @@ def is_Prime(n):
 
 def main():
     start = time.time()
-    primes = [2]
-    for i in range(3, 1001):
+    primes = [11]
+    for i in range(12, 1001):
         if is_Prime(i):
             primes.append(i)
     print primes
+    periods = []
+    for d in primes[::-1]:
+        period = 1
+        while pow(10, period, d) != 1:
+            period += 1
+        periods.append(period)
+        #if d-1 == period: break
 
-
+    periods.reverse()
+    print periods, max(periods)
+    print d
     print "It costs:", time.time() - start, "seconds"
 
 if __name__ == "__main__":
