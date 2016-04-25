@@ -4,6 +4,7 @@
 
 import math
 import time
+import profile
 
 
 def main():
@@ -13,4 +14,4 @@ def main():
     print "It costs:", time.time() - start, "seconds"
 
 if __name__ == "__main__":
-    main()
+    profile.run("main()")

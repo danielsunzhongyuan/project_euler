@@ -9,6 +9,7 @@ Find the sum of the digits in the number 100!
 import math
 import time
 from functools import wraps
+import profile
 
 def memo(func):
     cache = {}
@@ -25,8 +26,10 @@ def fac(n):
     return n * fac(n-1)
 
 def fac_2(n, result):
-    while len(result) < n:
-        result.append((len(result) + 1)*result[-1])
+    len_result = 0
+    while len_result < n:
+        result.append((len_result + 1)*result[-1])
+        len_result += 1
     return result[-1]
 
 def fac_3(n):
@@ -40,8 +43,8 @@ def fac_3(n):
 def main():
     start = time.time()
     # This func should not work because "maximum recursion depth exceeded"
-    print sum([int(i) for i in str(fac(10000))])
-    print "It costs:", time.time() - start, "seconds"
+    # print sum([int(i) for i in str(fac(10000))])
+    # print "It costs:", time.time() - start, "seconds"
 
     # This func costs about 0.097 seconds
     result = [1]
@@ -57,4 +60,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    profile.run("main()")

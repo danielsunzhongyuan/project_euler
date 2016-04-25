@@ -8,10 +8,7 @@ MAX_DIGITALS = 3
 
 def isPalindrome(n):
     n_str = str(n)
-    for i in range(len(n_str)/2):
-        if n_str[i] != n_str[len(n_str) - i - 1]:
-            return False
-    return True
+    return n_str == n_str[::-1]
 
 def main():
     min = math.pow(10, MAX_DIGITALS-1)
@@ -23,7 +20,7 @@ def main():
         for j in range(i, max):
             tmp = i * j
             if isPalindrome(tmp):
-                print tmp, "=", i, "*", j
+                #print tmp, "=", i, "*", j
                 result = tmp if result< tmp else result
     print "Max result:", result
     print isPalindrome(9009)

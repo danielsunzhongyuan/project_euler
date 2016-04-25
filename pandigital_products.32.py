@@ -10,13 +10,39 @@ HINT: Some products can be obtained in more than one way so be sure to only incl
 
 import math
 import time
+import profile
+
+def is_pandigital(string):
+    if len(string) != 9:
+        return False
+    if ''.join(sorted(string)) == '123456789':
+        return True
+    else:
+        return False
 
 
 def main():
     start = time.time()
-    print __doc__
+    total = 0
+    string = ''
+    results = set([])
+    for i in range(2, 10):
+        for j in range(1000, 9876):
+            if is_pandigital(str(i) + str(j) + str(i*j)):
+                print i, "*", j, "=", i*j
+                total += i*j
+                results.add(i*j)
+    for i in range(10, 100):
+        for j in range(100, 987):
+            if is_pandigital(str(i) + str(j) + str(i*j)):
+                print i, "*", j, "=", i*j
+                total += i*j
+                results.add(i*j)
+
+    print "total:", total
+    print "results:", sum(results)
 
     print "It costs:", time.time() - start, "seconds"
 
 if __name__ == "__main__":
-    main()
+    profile.run("main()")
