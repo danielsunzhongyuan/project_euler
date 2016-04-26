@@ -1,4 +1,3 @@
-
 '''
 The prime factors of 13195 are 5, 7, 13 and 29.
 
@@ -26,5 +25,6 @@ def main():
     print "max_prime_factor:", max_prime_factor
 
 if __name__ == "__main__":
+
     main()
 
