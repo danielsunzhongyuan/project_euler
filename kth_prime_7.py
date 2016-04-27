@@ -6,7 +6,7 @@ What is the 10001st prime number?
 
 import math
 
-N = 10001
+N = 100001
 
 def isPrime(n, primes):
     for i in primes:
