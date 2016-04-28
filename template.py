@@ -8,8 +8,9 @@ import profile
 
 
 def main():
+    '''sss'''
     start = time.time()
-    print __doc__
+    print __doc__, math.sqrt(25)
 
     print "It costs:", time.time() - start, "seconds"
 
